@@ -13,6 +13,17 @@ class ReaderViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var videoPreview: UIView!
     private var videoLayer: CALayer!
+    private var didSetConstraints = false
+
+    private lazy var areaOfInterestView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.systemBlue.cgColor
+        view.layer.cornerRadius = 2
+        return view
+    }()
 
     var codeReader: CodeScanner!
 
@@ -25,7 +36,7 @@ class ReaderViewController: UIViewController, Storyboarded {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         videoLayer.frame = videoPreview.bounds
-        codeReader.rectOfInterest = CGRect(x: 100, y: 100, width: 100, height: 100)
+        codeReader.rectOfInterest = areaOfInterestView.frame
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +44,32 @@ class ReaderViewController: UIViewController, Storyboarded {
         startReading()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addBlur()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         codeReader.stopScanning()
+    }
+
+    override func updateViewConstraints() {
+        guard didSetConstraints == false else { return }
+
+        defer {
+            didSetConstraints = true
+        }
+
+        NSLayoutConstraint.activate([
+            areaOfInterestView.centerXAnchor.constraint(equalTo: videoPreview.centerXAnchor),
+            areaOfInterestView.centerYAnchor.constraint(equalTo: videoPreview.centerYAnchor),
+            areaOfInterestView.widthAnchor.constraint(equalToConstant: 224),
+            areaOfInterestView.heightAnchor.constraint(equalToConstant: 224),
+
+        ])
+
+        super.updateViewConstraints()
     }
 
     @IBAction func startSessionTapped(_ sender: Any) {
@@ -50,12 +84,29 @@ class ReaderViewController: UIViewController, Storyboarded {
     }
 
     private func addAreaOfInterest() {
-        let view = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        view.backgroundColor = .clear
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.systemBlue.cgColor
-        view.layer.cornerRadius = 2
+        videoPreview.addSubview(areaOfInterestView)
+        view.setNeedsUpdateConstraints()
+    }
 
-        videoPreview.addSubview(view)
+    private func addBlur() {
+        let blurView = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        blurView.effect = UIBlurEffect(style: .dark)
+
+        let scanLayer = CAShapeLayer()
+        scanLayer.cornerRadius = 2
+
+        let scanRect = areaOfInterestView.frame
+
+        let outerPath = UIBezierPath(rect: scanRect)
+
+        let superlayerPath = UIBezierPath.init(rect: blurView.frame)
+        outerPath.usesEvenOddFillRule = true
+        outerPath.append(superlayerPath)
+        scanLayer.path = outerPath.cgPath
+        scanLayer.fillRule = .evenOdd
+        scanLayer.fillColor = UIColor.black.cgColor
+
+        videoPreview.addSubview(blurView)
+        blurView.layer.mask = scanLayer
     }
 }
