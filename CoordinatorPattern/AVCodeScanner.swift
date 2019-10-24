@@ -17,13 +17,22 @@ struct ScannedCode {
 
 protocol CodeScanner {
     typealias ScanResult = (ScannedCode) -> Void
-    var videoPreview: CALayer { get }
+    var videoPreviewLayer: CALayer { get }
     var rectOfInterest: CGRect { get set }
     func startScanning(completion: @escaping ScanResult)
     func stopScanning()
 }
 
 class AVCodeScanner: NSObject {
+
+    // MARK: - Properties
+
+    fileprivate(set) var videoPreviewLayer = CALayer()
+    fileprivate var captureSession: AVCaptureSession?
+    fileprivate var captureMetadataOutput = AVCaptureMetadataOutput()
+    fileprivate var captureVideoPreview: AVCaptureVideoPreviewLayer?
+    fileprivate var scanCompletionHandler: (ScanResult)?
+
     var rectOfInterest: CGRect {
         didSet {
             guard let captureVideoPreview = captureVideoPreview else {
@@ -34,46 +43,42 @@ class AVCodeScanner: NSObject {
         }
     }
 
-    fileprivate(set) var videoPreview = CALayer()
-    fileprivate var captureMetadataOutput = AVCaptureMetadataOutput()
-    fileprivate var captureVideoPreview: AVCaptureVideoPreviewLayer?
-
-    fileprivate var captureSession: AVCaptureSession?
-    fileprivate var scanCompletionHandler: (ScanResult)?
+    // MARK: - Initializers
 
     override init() {
         rectOfInterest = CGRect.zero
         super.init()
 
-        //Make sure the device can handle video
+        // Make sure the device can handle video
         guard let videoDevice = AVCaptureDevice.default(for: .video),
               let deviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {
             return
         }
 
-        //session
+        // Initialize session
         captureSession = AVCaptureSession()
 
-        //input
+        // Add input of type video
         captureSession?.addInput(deviceInput)
 
-        //output
+        // Add output of type metadata
         captureSession?.addOutput(captureMetadataOutput)
         captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
 
-        //interprets qr codes only
+        // Interpret qr codes only
         captureMetadataOutput.metadataObjectTypes = [.qr]
 
-        //preview
+        // Setup video preview
         guard let captureSession = captureSession else { return }
         captureVideoPreview = AVCaptureVideoPreviewLayer(session: captureSession)
+
         guard let captureVideoPreview = captureVideoPreview else { return }
         captureVideoPreview.videoGravity = .resizeAspectFill
-        self.videoPreview = captureVideoPreview
+        videoPreviewLayer = captureVideoPreview
     }
-
-
 }
+
+// MARK: - AVCaptureMetadataOutputObjectsDelegate
 
 extension AVCodeScanner: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ captureOutput: AVCaptureMetadataOutput,
@@ -85,16 +90,19 @@ extension AVCodeScanner: AVCaptureMetadataOutputObjectsDelegate {
              return
         }
 
+        print(readableCode.bounds)
+
         let scannedCode = ScannedCode(value: code)
 
         //Vibrate the phone
-
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         stopScanning()
 
         scanCompletionHandler?(scannedCode)
     }
 }
+
+// MARK: - Code Scanner Protocol
 
 extension AVCodeScanner: CodeScanner {
     func startScanning(completion: @escaping ScanResult) {
