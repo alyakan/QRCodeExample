@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		719C0CF1236085CD00932AAE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF0236085CD00932AAE /* CameraViewController.swift */; };
-		719C0CF32360EE8600932AAE /* AVCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF22360EE8600932AAE /* AVCodeReader.swift */; };
+		719C0CF32360EE8600932AAE /* AVCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF22360EE8600932AAE /* AVCodeScanner.swift */; };
 		719C0CF52360EFE400932AAE /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF42360EFE400932AAE /* ReaderViewController.swift */; };
 		719C0CF723618E9A00932AAE /* QRDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF623618E9A00932AAE /* QRDetailsViewController.swift */; };
 		71A30D83235F239A005434A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D82235F239A005434A3 /* AppDelegate.swift */; };
@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		719C0CF0236085CD00932AAE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		719C0CF22360EE8600932AAE /* AVCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCodeReader.swift; sourceTree = "<group>"; };
+		719C0CF22360EE8600932AAE /* AVCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCodeScanner.swift; sourceTree = "<group>"; };
 		719C0CF42360EFE400932AAE /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		719C0CF623618E9A00932AAE /* QRDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDetailsViewController.swift; sourceTree = "<group>"; };
 		71A30D7F235F239A005434A3 /* CoordinatorPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +89,7 @@
 				71A30D9C235F28D4005434A3 /* CreateAccountViewController.swift */,
 				71A30DA1235F4345005434A3 /* MainTabBarController.swift */,
 				719C0CF0236085CD00932AAE /* CameraViewController.swift */,
-				719C0CF22360EE8600932AAE /* AVCodeReader.swift */,
+				719C0CF22360EE8600932AAE /* AVCodeScanner.swift */,
 				719C0CF42360EFE400932AAE /* ReaderViewController.swift */,
 				719C0CF623618E9A00932AAE /* QRDetailsViewController.swift */,
 			);
@@ -187,7 +187,7 @@
 				71A30D83235F239A005434A3 /* AppDelegate.swift in Sources */,
 				71A30D85235F239A005434A3 /* SceneDelegate.swift in Sources */,
 				71A30D9B235F28C9005434A3 /* BuyViewController.swift in Sources */,
-				719C0CF32360EE8600932AAE /* AVCodeReader.swift in Sources */,
+				719C0CF32360EE8600932AAE /* AVCodeScanner.swift in Sources */,
 				719C0CF52360EFE400932AAE /* ReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

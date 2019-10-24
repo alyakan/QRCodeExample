@@ -14,7 +14,7 @@ class ReaderViewController: UIViewController, Storyboarded {
     @IBOutlet weak var videoPreview: UIView!
     private var videoLayer: CALayer!
 
-    var codeReader: CodeReader!
+    var codeReader: CodeScanner!
 
     override func viewDidLoad() {
         videoLayer = codeReader.videoPreview
@@ -35,7 +35,7 @@ class ReaderViewController: UIViewController, Storyboarded {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        codeReader.stopReading()
+        codeReader.stopScanning()
     }
 
     @IBAction func startSessionTapped(_ sender: Any) {
@@ -43,7 +43,7 @@ class ReaderViewController: UIViewController, Storyboarded {
     }
 
     private func startReading() {
-        codeReader.startReading { [weak self] code in
+        codeReader.startScanning { [weak self] code in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.coordinator?.showDetails(details: code)

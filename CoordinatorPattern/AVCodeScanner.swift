@@ -9,14 +9,15 @@
 import AVFoundation
 import UIKit
 
-protocol CodeReader {
+protocol CodeScanner {
+    typealias ScanResult = (String) -> Void
     var videoPreview: CALayer { get }
     var rectOfInterest: CGRect { get set }
-    func startReading(completion: @escaping (String) -> Void)
-    func stopReading()
+    func startScanning(completion: @escaping ScanResult)
+    func stopScanning()
 }
 
-class AVCodeReader: NSObject {
+class AVCodeScanner: NSObject {
     var rectOfInterest: CGRect {
         didSet {
             guard let captureVideoPreview = captureVideoPreview else {
@@ -32,7 +33,7 @@ class AVCodeReader: NSObject {
     fileprivate var captureVideoPreview: AVCaptureVideoPreviewLayer?
 
     fileprivate var captureSession: AVCaptureSession?
-    fileprivate var didRead: ((String) -> Void)?
+    fileprivate var scanCompletionHandler: (ScanResult)?
 
     override init() {
         rectOfInterest = CGRect.zero
@@ -68,7 +69,7 @@ class AVCodeReader: NSObject {
 
 }
 
-extension AVCodeReader: AVCaptureMetadataOutputObjectsDelegate {
+extension AVCodeScanner: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ captureOutput: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
                         from connection: AVCaptureConnection) {
@@ -80,19 +81,19 @@ extension AVCodeReader: AVCaptureMetadataOutputObjectsDelegate {
 
         //Vibrate the phone
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-        stopReading()
+        stopScanning()
 
-        didRead?(code)
+        scanCompletionHandler?(code)
     }
 }
 
-extension AVCodeReader: CodeReader {
-    func startReading(completion: @escaping (String) -> Void) {
-        self.didRead = completion
+extension AVCodeScanner: CodeScanner {
+    func startScanning(completion: @escaping ScanResult) {
+        self.scanCompletionHandler = completion
         captureSession?.startRunning()
     }
 
-    func stopReading() {
+    func stopScanning() {
         captureSession?.stopRunning()
     }
 }
