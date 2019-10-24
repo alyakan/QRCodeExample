@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		719C0CF1236085CD00932AAE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF0236085CD00932AAE /* CameraViewController.swift */; };
+		719C0CF32360EE8600932AAE /* AVCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF22360EE8600932AAE /* AVCodeReader.swift */; };
+		719C0CF52360EFE400932AAE /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF42360EFE400932AAE /* ReaderViewController.swift */; };
+		719C0CF723618E9A00932AAE /* QRDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C0CF623618E9A00932AAE /* QRDetailsViewController.swift */; };
 		71A30D83235F239A005434A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D82235F239A005434A3 /* AppDelegate.swift */; };
 		71A30D85235F239A005434A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D84235F239A005434A3 /* SceneDelegate.swift */; };
 		71A30D87235F239A005434A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D86235F239A005434A3 /* ViewController.swift */; };
 		71A30D8A235F239A005434A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71A30D88235F239A005434A3 /* Main.storyboard */; };
 		71A30D8C235F239B005434A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A30D8B235F239B005434A3 /* Assets.xcassets */; };
 		71A30D8F235F239B005434A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71A30D8D235F239B005434A3 /* LaunchScreen.storyboard */; };
+		71A30D97235F23DA005434A3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D96235F23DA005434A3 /* Coordinator.swift */; };
+		71A30D99235F2601005434A3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D98235F2601005434A3 /* Storyboarded.swift */; };
+		71A30D9B235F28C9005434A3 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D9A235F28C9005434A3 /* BuyViewController.swift */; };
+		71A30D9D235F28D4005434A3 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D9C235F28D4005434A3 /* CreateAccountViewController.swift */; };
+		71A30DA0235F3A81005434A3 /* BuyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30D9F235F3A81005434A3 /* BuyCoordinator.swift */; };
+		71A30DA2235F4345005434A3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A30DA1235F4345005434A3 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		719C0CF0236085CD00932AAE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		719C0CF22360EE8600932AAE /* AVCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCodeReader.swift; sourceTree = "<group>"; };
+		719C0CF42360EFE400932AAE /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
+		719C0CF623618E9A00932AAE /* QRDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDetailsViewController.swift; sourceTree = "<group>"; };
 		71A30D7F235F239A005434A3 /* CoordinatorPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A30D82235F239A005434A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71A30D84235F239A005434A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +38,12 @@
 		71A30D8B235F239B005434A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71A30D8E235F239B005434A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71A30D90235F239B005434A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71A30D96235F23DA005434A3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		71A30D98235F2601005434A3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		71A30D9A235F28C9005434A3 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		71A30D9C235F28D4005434A3 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		71A30D9F235F3A81005434A3 /* BuyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCoordinator.swift; sourceTree = "<group>"; };
+		71A30DA1235F4345005434A3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,7 @@
 		71A30D81235F239A005434A3 /* CoordinatorPattern */ = {
 			isa = PBXGroup;
 			children = (
+				71A30D9E235F3A67005434A3 /* Coordinators */,
 				71A30D82235F239A005434A3 /* AppDelegate.swift */,
 				71A30D84235F239A005434A3 /* SceneDelegate.swift */,
 				71A30D86235F239A005434A3 /* ViewController.swift */,
@@ -63,8 +84,25 @@
 				71A30D8B235F239B005434A3 /* Assets.xcassets */,
 				71A30D8D235F239B005434A3 /* LaunchScreen.storyboard */,
 				71A30D90235F239B005434A3 /* Info.plist */,
+				71A30D98235F2601005434A3 /* Storyboarded.swift */,
+				71A30D9A235F28C9005434A3 /* BuyViewController.swift */,
+				71A30D9C235F28D4005434A3 /* CreateAccountViewController.swift */,
+				71A30DA1235F4345005434A3 /* MainTabBarController.swift */,
+				719C0CF0236085CD00932AAE /* CameraViewController.swift */,
+				719C0CF22360EE8600932AAE /* AVCodeReader.swift */,
+				719C0CF42360EFE400932AAE /* ReaderViewController.swift */,
+				719C0CF623618E9A00932AAE /* QRDetailsViewController.swift */,
 			);
 			path = CoordinatorPattern;
+			sourceTree = "<group>";
+		};
+		71A30D9E235F3A67005434A3 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				71A30D96235F23DA005434A3 /* Coordinator.swift */,
+				71A30D9F235F3A81005434A3 /* BuyCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +176,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A30D9D235F28D4005434A3 /* CreateAccountViewController.swift in Sources */,
+				719C0CF1236085CD00932AAE /* CameraViewController.swift in Sources */,
+				71A30D97235F23DA005434A3 /* Coordinator.swift in Sources */,
+				71A30DA2235F4345005434A3 /* MainTabBarController.swift in Sources */,
 				71A30D87235F239A005434A3 /* ViewController.swift in Sources */,
+				71A30DA0235F3A81005434A3 /* BuyCoordinator.swift in Sources */,
+				71A30D99235F2601005434A3 /* Storyboarded.swift in Sources */,
+				719C0CF723618E9A00932AAE /* QRDetailsViewController.swift in Sources */,
 				71A30D83235F239A005434A3 /* AppDelegate.swift in Sources */,
 				71A30D85235F239A005434A3 /* SceneDelegate.swift in Sources */,
+				71A30D9B235F28C9005434A3 /* BuyViewController.swift in Sources */,
+				719C0CF32360EE8600932AAE /* AVCodeReader.swift in Sources */,
+				719C0CF52360EFE400932AAE /* ReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
