@@ -9,8 +9,14 @@
 import AVFoundation
 import UIKit
 
+struct ScannedCode {
+    let type: AVMetadataObject.ObjectType = .qr
+    let value: String
+    var bounds: CGRect?
+}
+
 protocol CodeScanner {
-    typealias ScanResult = (String) -> Void
+    typealias ScanResult = (ScannedCode) -> Void
     var videoPreview: CALayer { get }
     var rectOfInterest: CGRect { get set }
     func startScanning(completion: @escaping ScanResult)
@@ -79,11 +85,14 @@ extension AVCodeScanner: AVCaptureMetadataOutputObjectsDelegate {
              return
         }
 
+        let scannedCode = ScannedCode(value: code)
+
         //Vibrate the phone
+
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         stopScanning()
 
-        scanCompletionHandler?(code)
+        scanCompletionHandler?(scannedCode)
     }
 }
 

@@ -46,7 +46,7 @@ class ReaderViewController: UIViewController, Storyboarded {
         codeReader.startScanning { [weak self] code in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.coordinator?.showDetails(details: code)
+                self.coordinator?.showDetails(details: code.value)
             }
         }
     }
