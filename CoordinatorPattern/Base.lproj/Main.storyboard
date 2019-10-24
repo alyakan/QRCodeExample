@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0P-Wm-3Zx">
-                                <rect key="frame" x="20" y="44" width="374" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGk-70-VEW">
@@ -29,13 +29,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1VG-v6-Wgr" firstAttribute="trailing" secondItem="m0P-Wm-3Zx" secondAttribute="trailing" constant="20" id="5p9-Zr-FOy"/>
-                            <constraint firstItem="m0P-Wm-3Zx" firstAttribute="top" secondItem="1VG-v6-Wgr" secondAttribute="top" id="7bh-NL-ibP"/>
-                            <constraint firstItem="m0P-Wm-3Zx" firstAttribute="leading" secondItem="1VG-v6-Wgr" secondAttribute="leading" constant="20" id="G5A-YV-46T"/>
+                            <constraint firstItem="1VG-v6-Wgr" firstAttribute="trailing" secondItem="m0P-Wm-3Zx" secondAttribute="trailing" id="5p9-Zr-FOy"/>
+                            <constraint firstItem="m0P-Wm-3Zx" firstAttribute="top" secondItem="1VG-v6-Wgr" secondAttribute="top" constant="-44" id="7bh-NL-ibP"/>
+                            <constraint firstItem="m0P-Wm-3Zx" firstAttribute="leading" secondItem="1VG-v6-Wgr" secondAttribute="leading" id="G5A-YV-46T"/>
                             <constraint firstItem="aGk-70-VEW" firstAttribute="leading" secondItem="1VG-v6-Wgr" secondAttribute="leading" constant="161" id="Waj-56-rIe"/>
-                            <constraint firstItem="aGk-70-VEW" firstAttribute="top" secondItem="m0P-Wm-3Zx" secondAttribute="bottom" constant="157" id="Wib-gE-6sF"/>
                             <constraint firstItem="1VG-v6-Wgr" firstAttribute="trailing" secondItem="aGk-70-VEW" secondAttribute="trailing" constant="161" id="oOF-qC-IVn"/>
-                            <constraint firstItem="1VG-v6-Wgr" firstAttribute="bottom" secondItem="m0P-Wm-3Zx" secondAttribute="bottom" constant="268" id="ysF-Oo-hRq"/>
+                            <constraint firstItem="aGk-70-VEW" firstAttribute="top" secondItem="m0P-Wm-3Zx" secondAttribute="bottom" constant="-145" id="wbi-pm-kHY"/>
+                            <constraint firstItem="1VG-v6-Wgr" firstAttribute="bottom" secondItem="m0P-Wm-3Zx" secondAttribute="bottom" constant="-34" id="ysF-Oo-hRq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1VG-v6-Wgr"/>
                     </view>
