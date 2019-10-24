@@ -28,7 +28,7 @@ class MainCoordinator: NSObject, Coordinator {
     func start() {
 //        let vc = ViewController.instantiate()
         let vc = ReaderViewController.instantiate()
-        vc.codeReader = AVCodeScanner()
+        vc.codeScanner = AVCodeScanner()
         vc.coordinator = self // TODO: Move this to `instantiate()` method
         navigationController.pushViewController(vc, animated: false)
     }
